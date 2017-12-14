@@ -166,7 +166,7 @@ export default class Container extends Component {
     actuate() {
         // Clear the state when the game is over (game over only, not win)
         if (this.over) {
-            storageManager.clearGameSate()
+            storageManager.clearGameState()
         } else {
             storageManager.setGameState(this.serialize())
         }
@@ -188,7 +188,7 @@ export default class Container extends Component {
         let _self = this
         storageManager.getBestScore((bestScore) => {
             // Animate the update
-            LayoutAnimation.easeInEaseOut()
+            //LayoutAnimation.easeInEaseOut()
             if (bestScore < _self.score) {
                 storageManager.setBestScore(_self.score)
                 _self.setState({score: _self.score, best: _self.score, tiles: tiles, won: _self.won, over: _self.over})
@@ -333,7 +333,7 @@ export default class Container extends Component {
         let _self = this
         storageManager.getBestScore((bestScore) => {
             // Animate the update
-            LayoutAnimation.easeInEaseOut()
+           // LayoutAnimation.easeInEaseOut()
             _self.setState({
                 score: _self.score, 
                 best: bestScore, 
@@ -358,7 +358,7 @@ export default class Container extends Component {
     }
 
     restart() {
-        storageManager.clearGameSate()
+        storageManager.clearGameState()
         this.continueGame()
         this.setup()
     }
