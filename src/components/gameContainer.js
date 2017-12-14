@@ -22,19 +22,22 @@ const styles = StyleSheet.create({
     }
 })
 
-const GameContainer = (props) => {
-    return (
-        <View stle={styles.container}>
-            <GridContainer/>
-            <TileContainer tiles={props.tiles}/>
-            <GameMessage
-                won={props.won}
-                over={props.over}
-                onKeepGoing={props.onKeepGoing}
-                onTryAgain={props.onTryAgain}
-            />
-        </View>
-    )
+class GameContainer extends Component{
+    render() {
+        const {tiles, won, over, onKeepGoing, onTryAgain} = this.props
+        return (
+            <View stle={styles.container}>
+                <GridContainer/>
+                <TileContainer tiles={tiles}/>
+                <GameMessage
+                    won={won}
+                    over={over}
+                    onKeepGoing={onKeepGoing}
+                    onTryAgain={onTryAgain}
+                />
+            </View>
+        )
+    }
 }
 
 export default GameContainer

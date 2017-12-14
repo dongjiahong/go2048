@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{Component} from 'react'
 import {
     View,
     Text,
@@ -8,22 +8,25 @@ import {
 import Dimensions from '../utils/dimensions'
 const {height, width} = Dimensions.get('window')
 
-const Heading = (props) => {
-    return (
-        <View style={styles.heading}>
-            <Text style={styles.headingTitle}>2048</Text>
-            <View style={styles.scores}>
-                <View style={styles.container}>
-                    <Text style={styles.containerTitle}>SCORE</Text>
-                    <Text style={styles.containerValue}>{props.score}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Text style={styles.containerTitle}>BEST</Text>
-                    <Text style={styles.containerValue}>{props.best}</Text>
+class Heading extends Component{
+    render() {
+    const {score, best} = this.props
+        return (
+            <View style={styles.heading}>
+                <Text style={styles.headingTitle}>2048</Text>
+                <View style={styles.scores}>
+                    <View style={styles.container}>
+                        <Text style={styles.containerTitle}>SCORE</Text>
+                        <Text style={styles.containerValue}>{score}</Text>
+                    </View>
+                    <View style={styles.container}>
+                        <Text style={styles.containerTitle}>BEST</Text>
+                        <Text style={styles.containerValue}>{best}</Text>
+                    </View>
                 </View>
             </View>
-        </View>
-    )
+        )
+    }
 }
 
 const styles = StyleSheet.create({

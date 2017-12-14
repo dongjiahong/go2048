@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {
     View,
     Text,
@@ -102,20 +102,23 @@ const styles = StyleSheet.create({
     },
 })
 
-const Tile = (props) => {
-    const tileStyle = props.value <= 2048 ? styles['tile' + props.value] : styles['tilesuper']
-    const tilePositionStyle = {
-        left: props.x*(ITEM_WIDTH+MARGIN_WIDTH*2)+MARGIN_WIDTH*2,
-        top: props.y*(ITEM_WIDTH+MARGIN_WIDTH*2)+MARGIN_WIDTH*2,
-        width: ITEM_WIDTH,
-        height: ITEM_WIDTH,
+class Tile extends Component {
+    render() {
+        const {value, x, y} = this.props
+        const tileStyle = value <= 2048 ? styles['tile' + value] : styles['tilesuper']
+        const tilePositionStyle = {
+            left: x*(ITEM_WIDTH+MARGIN_WIDTH*2)+MARGIN_WIDTH*2,
+            top: y*(ITEM_WIDTH+MARGIN_WIDTH*2)+MARGIN_WIDTH*2,
+            width: ITEM_WIDTH,
+            height: ITEM_WIDTH,
+        }
+        const tileTextStyle = value <= 2048 ? styles['tile' + value + 'Text'] : styles['tilesuperText']
+        return (
+            <View style={[styles.tile, tileStyle, tilePositionStyle]}>
+                <Text style={[styles.tileText, tileTextStyle]}>{value}</Text>
+            </View>
+        )
     }
-    const tileTextStyle = props.value <= 2048 ? styles['tile' + props.value + 'Text'] : styles['tilesuperText']
-    return (
-        <View style={[styles.tile, tileStyle, tilePositionStyle]}>
-            <Text style={[styles.tileText, tileTextStyle]}>{props.value}</Text>
-        </View>
-    )
 }
 
 export default Tile

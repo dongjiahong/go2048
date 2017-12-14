@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{Component} from 'react'
 import {
     View,
     StyleSheet,
@@ -23,15 +23,17 @@ const styles = StyleSheet.create({
     }
 })
 
-const GridContainer = () => {
-    return (
-        <View style={styles.container}>
-            <GridRow/>
-            <GridRow/>
-            <GridRow/>
-            <GridRow/>
-        </View>
-    )
+class GridContainer extends Component {
+    render(){
+        return (
+            <View style={styles.container}>
+                <GridRow/>
+                <GridRow/>
+                <GridRow/>
+                <GridRow/>
+            </View>
+        )
+    }
 }
 
 export default GridContainer

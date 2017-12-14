@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{Component} from 'react'
 import {
     View,
     Text,
@@ -20,15 +20,19 @@ const styles = StyleSheet.create({
     },
 })
 
-const TileContainer = (props) => {
-    const children = props.tiles
-    return (
-        <View style={styles.container}>
-            {children.map((item) => {
-                return <Tile x={item.x} y={item.y} value={item.value} key={item.prog}/>
-            })}
-        </View>
-    )
+class TileContainer extends Component{
+    render() {
+        const children = this.props.tiles
+        return (
+            <View style={styles.container}>
+            {
+                children.map((item) => {
+                    return <Tile x={item.x} y={item.y} value={item.value} key={item.prog}/>
+                })
+            }
+            </View>
+        )
+    }
 }
 
 export default TileContainer

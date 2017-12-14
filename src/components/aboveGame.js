@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{Component} from 'react'
 import {
     View,
     Text,
@@ -10,22 +10,25 @@ import {
 import Dimensions from '../utils/dimensions'
 const {height, widht} = Dimensions.get('window')
 
-const AboveGame = (props) => {
-    return (
-        <View style={styles.container}>
-            <View style={styles.textContainer}>
-                <Text style={styles.text}>
-                    Join numbers and get to the 
-                    <Text style={styles.boldText}> 2048! </Text>
-                </Text>
-            </View>
-            <TouchableWithoutFeedback onPress={props.onRestart}>
-                <View style={styles.newGameContainer}>
-                    <Text style={styles.newGame}>New Game</Text>
+class AboveGame extends Component {
+    render() {
+        const {onRestart} = this.props
+        return (
+            <View style={styles.container}>
+                <View style={styles.textContainer}>
+                    <Text style={styles.text}>
+                        Join numbers and get to the 
+                        <Text style={styles.boldText}> 2048! </Text>
+                    </Text>
                 </View>
-            </TouchableWithoutFeedback>
-        </View>
-    )
+                <TouchableWithoutFeedback onPress={onRestart}>
+                    <View style={styles.newGameContainer}>
+                        <Text style={styles.newGame}>New Game</Text>
+                    </View>
+                </TouchableWithoutFeedback>
+            </View>
+        )
+    }
 }
 const styles = StyleSheet.create({
     container: {
