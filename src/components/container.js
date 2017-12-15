@@ -249,6 +249,7 @@ export default class Container extends Component {
         })
 
         if (moved) {
+            this.over = true
             this.addRandomTile()
             if (!this.movesAvailable()) {
                 this.over = true
