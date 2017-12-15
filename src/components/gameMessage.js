@@ -15,14 +15,15 @@ const styles = StyleSheet.create({
         left: 0,
         top: 0,
         overflow: 'hidden',
-        backgroundColor: 'rgba(238, 228, 218, 0.5)',
+       // backgroundColor: 'rgba(238, 228, 218, 0.5)',
+        backgroundColor: '#F4EEE2',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
     },
     row: {
         width: width-40,
-        height: 120,
+        height: 220,
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
@@ -42,6 +43,7 @@ const styles = StyleSheet.create({
         height: 120,
     },
     keepGoingContainer: {
+        marginTop: 50,
         height: 40,
         backgroundColor: '#8f7a66',
         borderRadius: 3,
@@ -53,6 +55,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     tryAgainContainer: {
+        marginTop: 50,
         height: 40,
         backgroundColor: '#8f7a66',
         borderRadius: 3,
@@ -100,7 +103,7 @@ export default class GameMessage extends Component {
 
     render() {
         const message = this.genMessage()
-        const containerStyle = (this.props.won||this.props.over) ? {width:width-40, height:height-40}:{width:0,height:0}
+        const containerStyle = (this.props.won||this.props.over) ? {width:width-30, height:height-280}:{width:0,height:0}
         return (
             <View style={[styles.container, containerStyle]}>{message}</View>
         )
