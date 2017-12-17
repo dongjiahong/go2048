@@ -5,7 +5,6 @@ import {
     Text,
     PanResponder,       // 该类可以将多点触摸操作协调为一个手势，它使得单点触摸可以接受更多的触摸操作，也可以用于识别简单的多点触摸
     LayoutAnimation,    // 当布局变化时，自动将视图运动到他们新的位置上
-    Alert,              // 启动一个提示对话框，包含对应的标题和信息
 } from 'react-native'
 
 // modules
@@ -359,6 +358,7 @@ export default class Container extends Component {
     }
 
     restart() {
+        console.warn("restart")
         storageManager.clearGameState()
         this.continueGame()
         this.setup()

@@ -4,7 +4,7 @@ import {
     Text,
     StyleSheet,
     Dimensions,
-    TouchableWithoutFeedback,
+    TouchableOpacity,
 } from 'react-native'
 
 const {height, width} = Dimensions.get('window')
@@ -56,15 +56,16 @@ const styles = StyleSheet.create({
     },
     tryAgainContainer: {
         marginTop: 50,
-        height: 40,
+        height: 80,
         backgroundColor: '#8f7a66',
         borderRadius: 3,
         paddingHorizontal: 15,
+        justifyContent: 'center',
     },
     tryAgain: {
         fontSize: 24,
-        color: '#f9f6f2',
         textAlign: 'center',
+        color: '#f9f6f2',
     },
 })
 
@@ -75,11 +76,11 @@ export default class GameMessage extends Component {
                 <View style={styles.row}>
                     <Text style={styles.won}>You win!</Text>
                     <View style={styles.lower}>
-                        <TouchableWithoutFeedback onPress={this.props.onKeepGoing}>
+                        <TouchableOpacity onPressIn={this.props.onKeepGoing}>
                             <View style={styles.keepGoingContainer}>
                                 <Text style={styles.keepGoing}>Keep going</Text>
                             </View>
-                        </TouchableWithoutFeedback>
+                        </TouchableOpacity>
                     </View>
                 </View>
             )
@@ -89,11 +90,11 @@ export default class GameMessage extends Component {
                 <View style={styles.row}>
                     <Text style={styles.over}>Game over!</Text>
                     <View style={styles.lower}>
-                        <TouchableWithoutFeedback onPress={this.props.onTryAgain}>
+                        <TouchableOpacity onPress={this.props.onTryAgain}>
                             <View style={styles.tryAgainContainer}>
                                 <Text style={styles.tryAgain}>Try again</Text>
                             </View>
-                        </TouchableWithoutFeedback>
+                        </TouchableOpacity>
                     </View>
                 </View>
             )

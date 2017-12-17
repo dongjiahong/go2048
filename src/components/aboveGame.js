@@ -3,7 +3,6 @@ import {
     View,
     Text,
     StyleSheet,
-    TouchableWithoutFeedback,
     TouchableOpacity,
 } from 'react-native'
 
@@ -21,11 +20,11 @@ class AboveGame extends Component {
                         <Text style={styles.boldText}> 2048! </Text>
                     </Text>
                 </View>
-                <TouchableWithoutFeedback onPress={onRestart}>
+                <TouchableOpacity onPress={onRestart}>
                     <View style={styles.newGameContainer}>
                         <Text style={styles.newGame}>New Game</Text>
                     </View>
-                </TouchableWithoutFeedback>
+                </TouchableOpacity>
             </View>
         )
     }
