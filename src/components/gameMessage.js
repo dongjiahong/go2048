@@ -44,10 +44,11 @@ const styles = StyleSheet.create({
     },
     keepGoingContainer: {
         marginTop: 50,
-        height: 40,
+        height: 80,
         backgroundColor: '#8f7a66',
         borderRadius: 3,
         paddingHorizontal: 15,
+        justifyContent: 'center',
     },
     keepGoing: {
         fontSize: 24,
@@ -90,7 +91,7 @@ export default class GameMessage extends Component {
                 <View style={styles.row}>
                     <Text style={styles.over}>Game over!</Text>
                     <View style={styles.lower}>
-                        <TouchableOpacity onPress={this.props.onTryAgain}>
+                        <TouchableOpacity onPressIn={this.props.onTryAgain}>
                             <View style={styles.tryAgainContainer}>
                                 <Text style={styles.tryAgain}>Try again</Text>
                             </View>

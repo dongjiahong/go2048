@@ -248,7 +248,6 @@ export default class Container extends Component {
         })
 
         if (moved) {
-            this.over = true
             this.addRandomTile()
             if (!this.movesAvailable()) {
                 this.over = true
@@ -357,8 +356,13 @@ export default class Container extends Component {
         this.setState({won: this.won, over: this.over})
     }
 
+    keepGoing() {
+        this.keepPlaying = true
+        this.continueGame()
+    }
+
+
     restart() {
-        console.warn("restart")
         storageManager.clearGameState()
         this.continueGame()
         this.setup()
